@@ -1,37 +1,35 @@
 package com.board.project_board.api.domain.post.controller.model;
 
-import com.board.project_board.api.domain.reply.controller.model.ReplyResponse;
 import com.board.project_board.db.post.enums.PostStatus;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class PostResponse {
+public class PostRegisterRequest {
 
-    private Long id;
-
-    private Long boardId;
-
+    @NotBlank
     private String userName;
 
+    @NotNull
+    private String password;
+
+    @NotBlank
+    @Email
     private String email;
 
-    private PostStatus status;
-
+    @NotBlank
     private String title;
 
+    @NotBlank
     private String content;
 
-    private LocalDateTime postedAt;
-
-    private List<ReplyResponse> replyResponseList = List.of();
 }

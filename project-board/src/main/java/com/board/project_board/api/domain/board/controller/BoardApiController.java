@@ -26,10 +26,10 @@ public class BoardApiController {
                 .body(response);
     }
 
-    @GetMapping("/search")
+    @GetMapping("/id/{id}")
     public ResponseEntity<BoardResponse> search(
 
-            @RequestParam(name="id") Long id
+            @PathVariable(name="id") Long id
     ){
         var response = boardBusiness.search(id);
 

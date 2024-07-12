@@ -15,7 +15,7 @@ public interface PostRepository extends JpaRepository<PostEntity,Long> {
 
     //자신의 글이 선택되어 postid 가 오면 자신의 정보 보여주기
     //select * from post where board_id = ? and id = ? status = ? limit 1
-    Optional<PostEntity> findFirstByBoardIdAndIdAndStatus(Long boardId, Long id , PostStatus status);
+    Optional<PostEntity> findFirstByIdAndStatus( Long id , PostStatus status);
 
 
 
